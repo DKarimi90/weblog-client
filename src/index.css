@@ -2,3 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  .nav-links {
+    @apply px-4
+  }
+}
