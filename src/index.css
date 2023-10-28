@@ -15,7 +15,7 @@
 
 @layer base {
   body {
-    @apply w-full max-w-[1200px] mx-auto font-['Montserrat'] 
+    @apply w-full max-w-[1200px] mx-auto font-[Quicksand] 
   }
   .nav-links {
     @apply px-4

@@ -20,7 +20,7 @@ const BlogDetails = () => {
   return (
     <div>
       {blog && ( 
-        <div className='w-full p-6'>
+        <div className='w-full p-6 border-black border-b mb-4'>
           <div className='border-b border-b-black my-2'>
             <p className='font-bold text-2xl md:text-3xl'>{blog.title}</p> 
           </div>
