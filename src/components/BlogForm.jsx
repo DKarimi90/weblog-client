@@ -9,10 +9,12 @@ const BlogForm = () => {
     const [author, setAuthor] = useState('')
     const [content, setContent] = useState('')
     const {blogs, dispatch} = useBlogsContext()
+    const [isLoading, setIsLoading] = useState('')
 
     //submit function 
     const handleFormSubmit = async(e) => {
         e.preventDefault()
+        setIsLoading(true)
 
         const data = {
             image: image, 
@@ -60,32 +62,40 @@ const BlogForm = () => {
                 type='file' 
                 accept='image/*'
                 onChange={handleImageChange}
+                required
                 />
                 <input className="input-fields" 
                 type='text' 
                 placeholder='Blog Title*' 
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
+                required
                 />
                 <input className="input-fields" 
                 type='text' 
                 placeholder='Author*' 
                 value={author}
                 onChange={(e) => setAuthor(e.target.value)}
+                required
                 />
                 <Editor className="input-fields"
                 content={content} 
                 setContent={setContent}
                 />
                 <div>
-                    <button className='btn'>Post Blog</button>
+                    <button className='btn' disabled={isLoading}>
+                        {isLoading ? 'Posting...' : 'POST BLOG'}
+                    </button>
                 </div>
             </form>
         </div>
         <div className='bg-[var(--primary)] w-full '>
             {image? <div><img src={image} alt='cover image' className='w-full object-cover'/></div> : <p className='text-6xl text-center pt-6'>Image Will Be Displayed Here</p>}
-        </div>
+        </div>.
+        <div className='col-span-3'>
+
          <div dangerouslySetInnerHTML={{ __html: content }} />
+        </div>
     </div>
   )
 }

@@ -22,13 +22,13 @@ const BlogDetails = () => {
       {blog && ( 
         <div className='w-full p-6'>
           <div className='border-b border-b-black my-2'>
-            <p className='font-bold text-3xl'>{blog.title}</p> 
+            <p className='font-bold text-2xl md:text-3xl'>{blog.title}</p> 
           </div>
-          <div><img src={blog.image} alt='cover image'/></div> 
-          <p className='italic'>Author: <span className='font-bold text-[var(--primary)] border-b border-b-[var(--primary)]'>{blog.author}</span></p> 
-          <div dangerouslySetInnerHTML={{ __html: blog.content }} />
+          <div className='h-[50vh]'><img src={blog.image} alt='cover image' className='w-full h-full object-cover'/></div> 
+          <p className='italic text-sm md:text-md'>Author: <span className='font-bold text-[var(--primary)] border-b border-b-[var(--primary)]'>{blog.author}</span></p> 
+          <div dangerouslySetInnerHTML={{ __html: blog.content }} className='text-sm md:text-lg' style={{lineHeight: '1.5'}}/>
           <div>
-            <p className='flex justify-end'><span className='mr-4'>Published:</span>{formatISO9075(new Date(blog.createdAt))}</p>
+            <p className='flex justify-end text-sm md:text-lg'><span className='mr-4'>Published:</span>{formatISO9075(new Date(blog.createdAt))}</p>
           </div>
         </div>
       )
