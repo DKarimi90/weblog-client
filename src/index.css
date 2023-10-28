@@ -6,12 +6,16 @@
 
 :root {
   --default: #ffffff; 
+  --danger: #ff0000;
   --primary: #2a9d8f; 
+  --primary1: #e5e5e5; 
+  --primary2: #86888a;
+
 }
 
 @layer base {
   body {
-    @apply w-full max-w-[1200px] mx-auto font-['Montserrat']
+    @apply w-full max-w-[1200px] mx-auto font-['Montserrat'] 
   }
   .nav-links {
     @apply px-4
@@ -20,6 +24,6 @@
     @apply my-3 py-2 px-1 rounded
   }
   .btn {
-    @apply bg-[var(--primary)] my-2 w-full py-2 rounded hover:bg-[var(--default)]
+    @apply bg-[var(--primary)] my-2 w-full py-2 rounded hover:bg-[var(--primary1)]
   }
 }
