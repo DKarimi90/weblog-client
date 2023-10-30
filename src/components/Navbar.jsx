@@ -28,8 +28,8 @@ const Navbar = () => {
             </div>
           </div>)}
           {!user && (<div className='flex w-full justify-end h-24 items-center'>
-              <NavLink className='nav-links' to="/register">Register</NavLink>
-              <NavLink className='nav-links' to="/login">Login</NavLink>
+              {/* <NavLink className='nav-links' to="/register">Register</NavLink>
+              <NavLink className='nav-links' to="/login">Login</NavLink> */}
           </div>)}
     </div>
   )
