@@ -31,7 +31,7 @@ const Blogs = ({ blog, url}) => {
     if (!user) {
       return;
     }
-    const response = await fetch(`${url}/blogs/${blog._id}`, {
+    const response = await fetch(`https://weblog-server.onrender.com/blogs/${blog._id}`, {
       method: 'DELETE',
       headers: {
         "Authorization": `Bearer ${user.token}`
