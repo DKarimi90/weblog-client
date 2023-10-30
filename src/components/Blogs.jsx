@@ -4,11 +4,14 @@ import {formatDistanceToNow} from 'date-fns'
 import { useBlogsContext } from '../hooks/useBlogsContext';
 import axios from 'axios'
 import {BsTrash3} from 'react-icons/bs'
+import { useAuthContext } from '../hooks/useAuthContext';
 
 
 const Blogs = ({ blog }) => {
   const {blogs, dispatch} = useBlogsContext()
   const [showTrash, setShowTrash] = useState(false)
+  const { user } = useAuthContext()
+  const [error, setError] = useState(null)
   // Truncate content to a maximum of 150 characters
   function truncate(text, maxLength) {
     if (text.length > maxLength) {
@@ -21,19 +24,27 @@ const Blogs = ({ blog }) => {
   const handleTrash = () => {
     setShowTrash(!showTrash)
   }
-
-  //Delete Blog
+  
+  //handle Delete
   const handleDelete = async () => {
-  try {
-    await axios.delete(`http://localhost:4000/blogs/${blog._id}`);
-    
-    // Remove the deleted blog from the local state
-    dispatch({ type: 'DELETE_BLOG', payload: { _id: blog._id } });
-  } catch (error) {
-    console.error('Error deleting blog:', error);
+    // Check whether we have a user before trying to delete a blog
+    if (!user) {
+      return;
+    }
+    const response = await fetch(`http://localhost:4000/blogs/${blog._id}`, {
+      method: 'DELETE',
+      headers: {
+        "Authorization": `Bearer ${user.token}`
+      }
+    });
+    const json = await response.json();
+    if (response.ok) {
+      dispatch({ type: 'DELETE_BLOG', payload: json});
+    }
+    if (!response.ok) {
+      setError(json.error);
+    }
   }
-}
-
   // Truncate the blog content
   const truncatedContent = truncate(blog.content, 300);
 
@@ -51,6 +62,7 @@ const Blogs = ({ blog }) => {
       <div dangerouslySetInnerHTML={{ __html: truncatedContent }} className='mb-12 mt-2 text-sm md:text-lg'/>
         </Link>
       </div>
+      <div className='mb-10 text-[var(--danger)]'>{error && <p>{error}</p>}</div>
       <div className='w-full flex items-center justify-between absolute bottom-0 p-2' onMouseEnter={handleTrash} onMouseLeave={handleTrash}>
         <div>
           {showTrash? <button onClick={handleDelete}><BsTrash3 className='hover:text-[var(--danger)] animate-bounce'/></button>: ''}

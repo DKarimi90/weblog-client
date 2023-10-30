@@ -4,23 +4,33 @@ import { useBlogsContext } from '../hooks/useBlogsContext'
 import Blogs from '../components/Blogs'
 import BlogForm from '../components/BlogForm'
 import BlogSlides from '../components/BlogSlides'
+import { useAuthContext } from '../hooks/useAuthContext'
 
 
 const Landing = () => {
   const {blogs, dispatch} = useBlogsContext()
+  const {user} = useAuthContext()
   
   //fetch blogs to load every time component mounts
   useEffect(() => {
     const fetchBlogs = async() => {
       try {
-        const response = await axios.get(`http://localhost:4000/blogs`)
+        const response = await axios.get(`http://localhost:4000/blogs`, {
+
+            headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${user.token}`
+        }
+        })
         dispatch({type:'SET_BLOGS', payload: response.data})
       } catch(error) {
         console.log(error)
       }
     }
-    fetchBlogs()
-  }, [])
+    if(user) {
+      fetchBlogs()
+    }
+  }, [dispatch])
 
 
   

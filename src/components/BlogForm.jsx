@@ -2,6 +2,9 @@ import {useState} from 'react'
 import Editor from './Editor'
 import axios from 'axios'
 import { useBlogsContext } from '../hooks/useBlogsContext'
+import { useAuthContext } from '../hooks/useAuthContext'
+import { useNavigate } from 'react-router-dom'
+
 
 const BlogForm = () => {
     const [image, setImage] = useState('')
@@ -10,6 +13,8 @@ const BlogForm = () => {
     const [content, setContent] = useState('')
     const {blogs, dispatch} = useBlogsContext()
     const [isLoading, setIsLoading] = useState('')
+    const {user} = useAuthContext()
+    const navigate = useNavigate()
 
     //submit function 
     const handleFormSubmit = async(e) => {
@@ -25,7 +30,7 @@ const BlogForm = () => {
 
    const response = await axios.post('http://localhost:4000/blogs', data, {
         headers: {
-            "Content-Type": "application/json"
+            "Authorization": `Bearer ${user.token}`
         }
     })
     dispatch({type:'CREATE_BLOG', payload: response.data})
@@ -33,6 +38,9 @@ const BlogForm = () => {
     setTitle('')
     setAuthor('')
     setContent('')
+    setIsLoading(false)
+    navigate('/')
+    
     }
 
     //submit image 

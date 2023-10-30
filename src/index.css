@@ -24,6 +24,6 @@
     @apply my-3 py-2 px-1 rounded
   }
   .btn {
-    @apply bg-[var(--primary)] my-2 w-full py-2 rounded hover:bg-[var(--primary1)]
+    @apply bg-[var(--primary)] my-2 w-full py-2 rounded hover:bg-[var(--primary2)]
   }
 }

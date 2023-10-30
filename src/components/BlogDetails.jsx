@@ -1,21 +1,31 @@
 import {useEffect} from 'react'
 import { useBlogsContext } from '../hooks/useBlogsContext'
-import { useParams } from 'react-router-dom'
+import { Navigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import {formatISO9075} from 'date-fns'
+import { useAuthContext } from '../hooks/useAuthContext'
 
 const BlogDetails = () => {
     const { _id } = useParams()
     console.log(_id)
     const { blog, dispatch } = useBlogsContext()
+    const { user } = useAuthContext()
 
     useEffect(() => {
       const fetchBlog = async() => {
-        const response = await axios.get(`http://localhost:4000/blogs/${_id}`)
+        const response = await axios.get(`http://localhost:4000/blogs/${_id}`, {
+          headers: {
+          "Authorization": `Bearer ${user.token}`
+        }
+        })
         dispatch({type:'SET_SINGLE_BLOG', payload: response.data})
         
       }
-      fetchBlog()
+      if(user){
+        fetchBlog()
+      } else {
+        return <Navigate to="/login" />
+      }
     }, [_id])
   return (
     <div>

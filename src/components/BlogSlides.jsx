@@ -10,7 +10,7 @@ const BlogSlides = ( {blogs} ) => {
         <p>A Community Where Your Stories Come to Life! Join Us and Share Your Unique Tale with the <span className='text-[var(--primary2)]'>World!</span></p>
       </div>
       <div className='flex justify-center pt-5 text-sm md:text-xl px-3'>
-        <h1>Register or Login Now and explore <strong className='text-[var(--primary2)]'>{blogs.length}</strong> stories already shared on the platform. <span className='text-[var(--primary)]'>Enjoy the READ!</span></h1>
+        <h1>Explore <strong className='text-[var(--primary2)]'>{blogs.length}</strong> stories already shared on the platform. <span className='text-[var(--primary)]'>Enjoy the READ!</span></h1>
       </div>
     </div>
   )
