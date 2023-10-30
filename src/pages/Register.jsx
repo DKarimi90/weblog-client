@@ -90,11 +90,16 @@ const Register = () => {
         </div>
       </div>
       <button
-        type="submit"
-        className="w-full rounded-lg btn px-5 py-3 text-sm font-medium text-white"
-      >
-        REGISTER
-      </button>
+            type="submit"
+            className="w-full rounded-lg btn px-5 py-3 text-sm font-medium text-white"
+            disabled={isLoading}
+          >
+            {isLoading ? (
+                <div>Processing...</div>
+            ) : (
+              'REGISTER'
+            )}
+          </button>
       <div className='flex justify-center text-[var(--danger)]'>
         {error && <div>{error}</div>}
       </div>
