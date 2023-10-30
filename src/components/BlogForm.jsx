@@ -28,7 +28,7 @@ const BlogForm = () => {
             content: content
         }
 
-   const response = await axios.post('http://localhost:4000/blogs', data, {
+   const response = await axios.post('https://weblog-server.onrender.com/blogs', data, {
         headers: {
             "Authorization": `Bearer ${user.token}`
         }

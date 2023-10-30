@@ -18,7 +18,7 @@ export const useRegister = () => {
         };
 
         try {
-            const response = await fetch('http://localhost:4000/users/signup', {
+            const response = await fetch('https://weblog-server.onrender.com/users/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

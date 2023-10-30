@@ -5,7 +5,7 @@ import axios from 'axios'
 import {formatISO9075} from 'date-fns'
 import { useAuthContext } from '../hooks/useAuthContext'
 
-const BlogDetails = () => {
+const BlogDetails = ( {url} ) => {
     const { _id } = useParams()
     console.log(_id)
     const { blog, dispatch } = useBlogsContext()
@@ -13,7 +13,7 @@ const BlogDetails = () => {
 
     useEffect(() => {
       const fetchBlog = async() => {
-        const response = await axios.get(`http://localhost:4000/blogs/${_id}`, {
+        const response = await axios.get(`https://weblog-server.onrender.com/blogs/${_id}`, {
           headers: {
           "Authorization": `Bearer ${user.token}`
         }

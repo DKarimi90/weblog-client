@@ -7,7 +7,7 @@ import {BsTrash3} from 'react-icons/bs'
 import { useAuthContext } from '../hooks/useAuthContext';
 
 
-const Blogs = ({ blog }) => {
+const Blogs = ({ blog, url}) => {
   const {blogs, dispatch} = useBlogsContext()
   const [showTrash, setShowTrash] = useState(false)
   const { user } = useAuthContext()
@@ -24,14 +24,14 @@ const Blogs = ({ blog }) => {
   const handleTrash = () => {
     setShowTrash(!showTrash)
   }
-  
+
   //handle Delete
   const handleDelete = async () => {
     // Check whether we have a user before trying to delete a blog
     if (!user) {
       return;
     }
-    const response = await fetch(`http://localhost:4000/blogs/${blog._id}`, {
+    const response = await fetch(`${url}/blogs/${blog._id}`, {
       method: 'DELETE',
       headers: {
         "Authorization": `Bearer ${user.token}`
