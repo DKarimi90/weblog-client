@@ -17,73 +17,73 @@ const BlogForm = () => {
     const navigate = useNavigate()
 
     //submit function 
-//     const handleFormSubmit = async(e) => {
-//         e.preventDefault()
-//         setIsLoading(true)
+    const handleFormSubmit = async(e) => {
+        e.preventDefault()
+        setIsLoading(true)
 
-//         const data = {
-//             image: image, 
-//             title: title, 
-//             author: author, 
-//             content: content
-//         }
+        const data = {
+            image: image, 
+            title: title, 
+            author: author, 
+            content: content
+        }
 
-//    const response = await axios.post('https://weblog-server.onrender.com/blogs', data, {
-//         headers: {
-//             "Authorization": `Bearer ${user.token}`
-//         }
-//     })
-//     dispatch({type:'CREATE_BLOG', payload: response.data})
-//     setImage('')
-//     setTitle('')
-//     setAuthor('')
-//     setContent('')
-//     setIsLoading(false)
-//     navigate('/')
+   const response = await axios.post('https://weblog-server-cbto.onrender.com/blogs', data, {
+        headers: {
+            "Authorization": `Bearer ${user.token}`
+        }
+    })
+    dispatch({type:'CREATE_BLOG', payload: response.data})
+    setImage('')
+    setTitle('')
+    setAuthor('')
+    setContent('')
+    setIsLoading(false)
+    navigate('/')
     
-//     }
+    }
 
 
     //use fetch 
-    const handleFormSubmit = async (e) => {
-  e.preventDefault();
-  setIsLoading(true);
+//     const handleFormSubmit = async (e) => {
+//   e.preventDefault();
+//   setIsLoading(true);
 
-  const data = {
-    image: image,
-    title: title,
-    author: author,
-    content: content,
-  };
+//   const data = {
+//     image: image,
+//     title: title,
+//     author: author,
+//     content: content,
+//   };
 
-  try {
-    const response = await fetch('https://weblog-server-cbto.onrender.com/blogs', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${user.token}`,
-      },
-      body: JSON.stringify(data),
-    });
+//   try {
+//     const response = await fetch('https://weblog-server-cbto.onrender.com/blogs', {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//         "Authorization": `Bearer ${user.token}`,
+//       },
+//       body: JSON.stringify(data),
+//     });
 
-    if (!response.ok) {
-      // Handle errors here, e.g., show an error message.
-      console.error('Failed to create a blog:', response.statusText);
-    } else {
-      const responseData = await response.json();
-      dispatch({ type: 'CREATE_BLOG', payload: responseData });
-      setImage('');
-      setTitle('');
-      setAuthor('');
-      setContent('');
-      setIsLoading(false);
-      navigate('/');
-    }
-  } catch (error) {
-    // Handle any network or fetch-related errors here.
-    console.error('Fetch error:', error);
-  }
-};
+//     if (!response.ok) {
+//       // Handle errors here, e.g., show an error message.
+//       console.error('Failed to create a blog:', response.statusText);
+//     } else {
+//       const responseData = await response.json();
+//       dispatch({ type: 'CREATE_BLOG', payload: responseData });
+//       setImage('');
+//       setTitle('');
+//       setAuthor('');
+//       setContent('');
+//       setIsLoading(false);
+//       navigate('/');
+//     }
+//   } catch (error) {
+//     // Handle any network or fetch-related errors here.
+//     console.error('Fetch error:', error);
+//   }
+// };
 
 
     //submit image 

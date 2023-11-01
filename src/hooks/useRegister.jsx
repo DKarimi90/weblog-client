@@ -18,7 +18,7 @@ export const useRegister = () => {
         };
 
         try {
-            const response = await fetch('https://weblog-server-cbto.onrender.com/users/signup', {
+            const response = await fetch('https://weblog-server-cbto.onrender.com/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
