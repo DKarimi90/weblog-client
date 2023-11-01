@@ -1,16 +1,18 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { useLogout } from '../hooks/useLogout'
 import { useAuthContext } from '../hooks/useAuthContext'
 
 const Navbar = () => {
   const {logout} = useLogout()
   const {user} = useAuthContext()
+  const navigate = useNavigate()
 
 
   //logout function 
   const handleLogout = () => {
     logout()
+    navigate('/')
   }
   return (
     <div className='w-full'>
