@@ -57,7 +57,7 @@ const BlogForm = () => {
   };
 
   try {
-    const response = await fetch('https://weblog-server.onrender.com/blogs', {
+    const response = await fetch('https://weblog-server-cbto.onrender.com/blogs', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
