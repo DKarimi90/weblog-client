@@ -95,7 +95,7 @@ const Register = () => {
             disabled={isLoading}
           >
             {isLoading ? (
-                <div>Processing...</div>
+                <div>Processing...2mins@most</div>
             ) : (
               'REGISTER'
             )}
