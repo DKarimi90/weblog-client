@@ -13,7 +13,7 @@ const BlogDetails = ( {url} ) => {
 
     useEffect(() => {
       const fetchBlog = async() => {
-        const response = await axios.get(`https://weblog-server.onrender.com/blogs/${_id}`, {
+        const response = await axios.get(`https://weblog-server-cbto.onrender.com/blogs/${_id}`, {
           headers: {
           "Authorization": `Bearer ${user.token}`
         }
