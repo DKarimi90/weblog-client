@@ -43,49 +43,6 @@ const BlogForm = () => {
     
     }
 
-
-    //use fetch 
-//     const handleFormSubmit = async (e) => {
-//   e.preventDefault();
-//   setIsLoading(true);
-
-//   const data = {
-//     image: image,
-//     title: title,
-//     author: author,
-//     content: content,
-//   };
-
-//   try {
-//     const response = await fetch('https://weblog-server-cbto.onrender.com/blogs', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//         "Authorization": `Bearer ${user.token}`,
-//       },
-//       body: JSON.stringify(data),
-//     });
-
-//     if (!response.ok) {
-//       // Handle errors here, e.g., show an error message.
-//       console.error('Failed to create a blog:', response.statusText);
-//     } else {
-//       const responseData = await response.json();
-//       dispatch({ type: 'CREATE_BLOG', payload: responseData });
-//       setImage('');
-//       setTitle('');
-//       setAuthor('');
-//       setContent('');
-//       setIsLoading(false);
-//       navigate('/');
-//     }
-//   } catch (error) {
-//     // Handle any network or fetch-related errors here.
-//     console.error('Fetch error:', error);
-//   }
-// };
-
-
     //submit image 
     const handleImageChange = (e) => {
         e.preventDefault()
@@ -106,8 +63,9 @@ const BlogForm = () => {
         }
     }
   return (
+    <div className='px-2 main min-h-screen'>
     <div className='w-full grid md:grid-cols-3 gap-3'>
-        <div className='col-span-2 bg-[var(--primary)] p-2'>
+        <div className='md:col-span-2 p-2 border'>
             <form className='flex flex-col' onSubmit={handleFormSubmit}>
                 <input className="input-fields" 
                 type='file' 
@@ -115,14 +73,14 @@ const BlogForm = () => {
                 onChange={handleImageChange}
                 required
                 />
-                <input className="input-fields" 
+                <input className="input-fields border " 
                 type='text' 
                 placeholder='Blog Title*' 
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 required
                 />
-                <input className="input-fields" 
+                <input className="input-fields border" 
                 type='text' 
                 placeholder='Author*' 
                 value={author}
@@ -140,14 +98,15 @@ const BlogForm = () => {
                 </div>
             </form>
         </div>
-        <div className='bg-[var(--primary)] w-full '>
-            {image? <div><img src={image} alt='cover image' className='w-full object-cover'/></div> : <p className='text-6xl text-center pt-6'>Image Will Be Displayed Here</p>}
-        </div>.
+        <div className='border w-full md:relative h-full'>
+            {image? <div><img src={image} alt='cover image' className='md:absolute w-full object-cover h-full'/></div> : <p className='text-6xl text-center pt-12 px-4 line-height:[2rem] text-[var(--primary1)]'>Selected Image To Display Here</p>}
+        </div>
+    </div>
         <div className='col-span-3'>
 
          <div dangerouslySetInnerHTML={{ __html: content }} />
         </div>
-    </div>
+      </div>
   )
 }
 

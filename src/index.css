@@ -6,24 +6,32 @@
 
 :root {
   --default: #ffffff; 
+  --charcoal: #212529;
   --danger: #ff0000;
-  --primary: #2a9d8f; 
+  --primary: #40916c; 
   --primary1: #e5e5e5; 
   --primary2: #86888a;
+  --primary3: #52b788; 
 
 }
 
 @layer base {
   body {
-    @apply w-full max-w-[1200px] mx-auto font-[Quicksand] 
+    @apply w-full font-[Quicksand] min-h-screen
+  }
+  .dark {
+    @apply bg-[var(--charcoal)] text-[var(--default)]
+  }
+  .main {
+    @apply max-w-[1200px] mx-auto
   }
   .nav-links {
     @apply px-4
   }
   .input-fields {
-    @apply my-3 py-2 px-1 rounded
+    @apply my-3 py-2 px-1 rounded dark:bg-[var(--charcoal)] 
   }
   .btn {
-    @apply bg-[var(--primary)] my-2 w-full py-2 rounded hover:bg-[var(--primary2)]
+    @apply bg-[var(--primary)] my-2 w-full py-2 rounded hover:bg-[var(--primary3)] hover:text-[var(--primary1)]
   }
 }

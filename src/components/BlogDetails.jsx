@@ -28,7 +28,7 @@ const BlogDetails = ( {url} ) => {
       }
     }, [_id])
   return (
-    <div>
+    <div className='main min-h-screen'>
       {blog && ( 
         <div className='w-full p-6 border-black border-b mb-4'>
           <div className='border-b border-b-black my-2'>

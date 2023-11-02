@@ -21,7 +21,7 @@ const Login = () => {
   };
 
   return (
-    <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 min-h-screen">
       <div className="mx-auto max-w-lg">
         <h1 className="text-center text-2xl font-bold text-[var(--primary)] sm:text-3xl">
           Welcome Back!
@@ -38,7 +38,7 @@ const Login = () => {
             <div className="relative">
               <input
                 type="email"
-                className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm dark:bg-[var(--charcoal)]"
                 placeholder="Enter email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -49,7 +49,7 @@ const Login = () => {
             <div className="relative">
               <input
                 type={!showPassword ? "password" : "text"}
-                className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm dark:bg-[var(--charcoal)]"
                 placeholder="Enter password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
