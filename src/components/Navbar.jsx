@@ -56,7 +56,7 @@ const Navbar = ( {toggleDarkMode, darkMode} ) => {
               {showButton? <button className='flex justify-end w-full text-[var(--danger)] items-center' onClick={handleLogout}>Logout</button>: ''}
             </div>
           </div>)}
-          <div onClick={toggleDarkMode} className='absolute right-5'>
+          <div onClick={toggleDarkMode} className='absolute right-5 top-5'>
             {!darkMode? <BsSunFill />:<BsMoonStarsFill className='text-white'/>}
           </div>
           
