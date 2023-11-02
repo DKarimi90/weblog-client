@@ -36,7 +36,7 @@ const Landing = () => {
   
   return (
     
-    <div className='w-full main'>
+    <div className='w-full main min-h-screen'>
       <div className='w-full h-[50vh] mb-10'>
         <BlogSlides blogs={blogs}/>
       </div>

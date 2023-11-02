@@ -29,7 +29,7 @@ const Navbar = ( {toggleDarkMode, darkMode} ) => {
                 <NavLink to='/' className='font-bold'>BLOG<span className='text-[var(--primary)]'>BOX</span></NavLink>
             </div>
             <div>
-              <NavLink className='nav-links' to="/">Blogs</NavLink>
+              <NavLink className='nav-links' to="/resources">Resources</NavLink>
               <NavLink className='nav-links' to="/blogform">Create Blog</NavLink>
             </div>
           
@@ -45,6 +45,7 @@ const Navbar = ( {toggleDarkMode, darkMode} ) => {
           <div onClick={toggleDarkMode} className='pr-5'>
             {!darkMode? <BsSunFill />:<BsMoonStarsFill className='text-white'/>}
           </div>
+          
     </div>
   )
 }

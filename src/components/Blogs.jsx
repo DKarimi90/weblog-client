@@ -54,7 +54,7 @@ const Blogs = ({ blog, url}) => {
         <p className='font-bold text-2xl md:text-3xl text-[var(--primary2)]'>{blog.title}</p>
       </div>
       <div>
-        <Link to={`/blogs/${blog._id}`}>
+        <Link to={`/blogs/${blog._id}`} onClick={() => window.scrollTo(0, 0)}>
           <div className='w-full h-[30vh] mb-2'>
               <img src={blog.image} alt='cover image' className='w-full h-full object-cover' />
           </div>

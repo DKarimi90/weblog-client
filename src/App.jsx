@@ -7,6 +7,7 @@ import Login from "./pages/Login"
 import { useAuthContext } from "./hooks/useAuthContext"
 import BlogForm from "./components/BlogForm"
 import { useState } from "react"
+import Resources from "./pages/Resources"
 function App() {
   const {user} = useAuthContext()
   const [darkMode, setDarkMode] = useState(false)
@@ -29,6 +30,7 @@ function App() {
           <Route path="/login" element={!user? <Login />: <Navigate to="/" />} url={url} darkMode={darkMode}/>
           <Route path="/blogs/:_id" element={user? <BlogDetails />: <Navigate to="/login"/>} url={url}/>
           <Route path="/blogform" element={<BlogForm /> } url={url}/>
+           <Route path="/resources" element={<Resources /> } url={url}/>
         </Routes>
       </Router>
     </div>
