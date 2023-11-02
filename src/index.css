@@ -17,13 +17,16 @@
 
 @layer base {
   body {
-    @apply w-full font-[Quicksand] min-h-screen
+    @apply w-full font-[Quicksand] min-h-screen 
   }
   .dark {
     @apply bg-[var(--charcoal)] text-[var(--default)]
   }
   .main {
     @apply max-w-[1200px] mx-auto
+  }
+  .nav-scroll {
+    @apply pt-32
   }
   .nav-links {
     @apply px-4

@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import { useLogout } from '../hooks/useLogout'
 import { useAuthContext } from '../hooks/useAuthContext'
 import {BsSunFill, BsMoonStarsFill} from 'react-icons/bs'
+import { useEffect } from 'react'
 
 
 const Navbar = ( {toggleDarkMode, darkMode} ) => {
@@ -10,6 +11,7 @@ const Navbar = ( {toggleDarkMode, darkMode} ) => {
   const {user} = useAuthContext()
   const navigate = useNavigate()
   const [showButton, setShowButton] = useState(null)
+  const [scroll, setScroll] = useState(false)
 
 
   //logout function 
@@ -22,9 +24,25 @@ const Navbar = ( {toggleDarkMode, darkMode} ) => {
   const handleLogoutButton = () => {
     setShowButton(!showButton)
   }
+
+  //handle nav scroll 
+  useEffect(() => {
+    const handleScroll = () => {
+      if(window.scrollY > 0) {
+        setScroll(true)
+      }
+      else {
+        setScroll(false)
+      }
+    }
+    window.addEventListener("scroll", handleScroll)
+  return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+
   return (
-    <div className='w-full flex items-center dark:bg-[var(--charcoal)]'>
-        {user && (<div className='w-full h-24 max-w-[1200px] mx-auto flex justify-between items-center'>
+    <div className={`fixed w-full flex items-center dark:bg-[var(--charcoal)] z-10 ${scroll? 'bg-slate-100/95 shadow-xl shadow-black': ''}`}>
+        {user && (<div className={`w-full h-24 max-w-[1200px] mx-auto flex justify-between items-center`}>
             <div>
                 <NavLink to='/' className='font-bold'>BLOG<span className='text-[var(--primary)]'>BOX</span></NavLink>
             </div>
@@ -38,11 +56,7 @@ const Navbar = ( {toggleDarkMode, darkMode} ) => {
               {showButton? <button className='flex justify-end w-full text-[var(--danger)] items-center' onClick={handleLogout}>Logout</button>: ''}
             </div>
           </div>)}
-          {!user && (<div className='flex w-full justify-end h-24 items-center'>
-              {/* <NavLink className='nav-links' to="/register">Register</NavLink>
-              <NavLink className='nav-links' to="/login">Login</NavLink> */}
-          </div>)}
-          <div onClick={toggleDarkMode} className='pr-5'>
+          <div onClick={toggleDarkMode} className='absolute right-5'>
             {!darkMode? <BsSunFill />:<BsMoonStarsFill className='text-white'/>}
           </div>
           
