@@ -30,7 +30,7 @@ const BlogDetails = ( {url} ) => {
   return (
     <div className='main min-h-screen pt-16'>
       {blog && ( 
-        <div className='w-full p-6 border-black border-b mb-4'>
+        <div className='w-full p-6 border-black border-b'>
           <div className='border-b border-b-black my-2'>
             <p className='font-bold text-2xl md:text-3xl'>{blog.title}</p> 
           </div>

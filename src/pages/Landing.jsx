@@ -45,9 +45,7 @@ const Landing = () => {
         <Blogs key={index} blog={blog}/>
       ))}
       </div>
-      <div className='mt-10'>
-        {/* <BlogForm /> */}
-      </div>
+
     </div>
   )
 }
