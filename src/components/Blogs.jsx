@@ -7,11 +7,14 @@ import {BsTrash3} from 'react-icons/bs'
 import { useAuthContext } from '../hooks/useAuthContext';
 
 
+
 const Blogs = ({ blog, url}) => {
   const {blogs, dispatch} = useBlogsContext()
   const [showTrash, setShowTrash] = useState(false)
   const { user } = useAuthContext()
   const [error, setError] = useState(null)
+
+
   // Truncate content to a maximum of 150 characters
   function truncate(text, maxLength) {
     if (text.length > maxLength) {
@@ -48,6 +51,7 @@ const Blogs = ({ blog, url}) => {
   // Truncate the blog content
   const truncatedContent = truncate(blog.content, 300);
 
+
   return (
     <div className='w-full p-2 relative'>
       <div className='my-2'>
@@ -67,8 +71,10 @@ const Blogs = ({ blog, url}) => {
         <div>
           {showTrash? <button onClick={handleDelete}><BsTrash3 className='hover:text-[var(--danger)] animate-bounce'/></button>: ''}
         </div>
+                      
          <p className='flex justify-end text-sm md:text-lg pr-4'><span className='mr-2 text-[var(--primary2)]'>Published:</span>  {formatDistanceToNow(new Date(blog.createdAt), { addSuffix: true })}</p>
       </div>
+              
     </div>
   );
 };
