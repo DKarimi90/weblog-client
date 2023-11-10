@@ -56,7 +56,15 @@ const Navbar = ( {toggleDarkMode, darkMode} ) => {
             </div>
             <div>
               <NavLink className='nav-links' to="/resources">Resources</NavLink>
-              <NavLink className='nav-links' to="/blogform">Create Blog</NavLink>
+              {/* {user.email === 'chief@chief.dev' && (
+              <NavLink className='nav-links' to="/blogform">
+                Create Blog
+              </NavLink>
+            )} */}
+              <NavLink className='nav-links' to="/blogform">
+                Create Blog
+              </NavLink>
+
             </div>
           
             <div onMouseEnter={handleLogoutButton} onMouseLeave={handleLogoutButton} className='h-6'>
@@ -77,7 +85,7 @@ const Navbar = ( {toggleDarkMode, darkMode} ) => {
             
             {/* links  */}
             <div>
-              <div className={`flex flex-col pt-8 w-full pb-10 transform-translate duration-700 ease-in-out dark:bg-[var(--charcoal)] z-10 bg-slate-100/95 ${!showMenu? 'translate-x-[-120vh]' : 'translate-x-0'}`} >
+              <div className={`flex flex-col pt-8 w-full pb-10 transform-translate duration-700 ease-in-out dark:bg-[var(--charcoal)] bg-slate-100/95 ${!showMenu? 'translate-x-[-120vh]' : 'translate-x-0'}`} >
                   <div className='pt-6'>
                       <NavLink onClick={handleMenu} to='/' className='font-bold px-4'>BLOG<span className='text-[var(--primary)]'>BOX</span></NavLink>
                   </div>

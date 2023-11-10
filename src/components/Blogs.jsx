@@ -59,8 +59,8 @@ const Blogs = ({ blog, url}) => {
       </div>
       <div>
         <Link to={`/blogs/${blog._id}`} onClick={() => window.scrollTo(0, 0)}>
-          <div className='w-full h-[30vh] mb-2'>
-              <img src={blog.image} alt='cover image' className='w-full h-full object-cover hover:scale-105 duration-700' />
+          <div className='w-full h-[30vh] mb-2 overflow-hidden'>
+              <img src={blog.image} alt='cover image' className='w-full h-full hover:scale-110 duration-700' />
           </div>
       <p className='italic text-sm md:text-md'>Author:~ <span className='md:font-bold text-[var(--primary)] border-b border-b-[var(--primary)] my-2'>{blog.author}</span></p> 
       <div dangerouslySetInnerHTML={{ __html: truncatedContent }} className='mb-12 mt-2 text-sm md:text-lg'/>
