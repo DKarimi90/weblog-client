@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLogin } from '../hooks/useLogin';
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
   const { login, error, isLoading } = useLogin();
@@ -21,7 +22,10 @@ const Login = () => {
   };
 
   return (
-    <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 min-h-screen">
+    <div className="mx-auto max-w-screen-xl px-4 py-48 sm:px-6 lg:px-8 min-h-screen">
+      <Helmet>
+        <title>Login</title>
+      </Helmet>
       <div className="mx-auto max-w-lg">
         <h1 className="text-center text-2xl font-bold text-[var(--primary)] sm:text-3xl">
           Welcome Back!
@@ -80,7 +84,7 @@ const Login = () => {
           <p className="text-center text-sm text-gray-500">
             Don't have an Account?
             <Link className="underline pl-2" to="/register">
-              <span className="text-[var(--primary)]">Register Here!</span>
+              <span className="text-[var(--primary)]" onClick={() => window.scrollTo(0, 0)}>Register Here!</span>
             </Link>
           </p>
         </form>

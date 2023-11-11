@@ -6,6 +6,7 @@ import {formatISO9075} from 'date-fns'
 import { useAuthContext } from '../hooks/useAuthContext'
 import BlogEditForm from './BlogEditForm';
 import {FiEdit} from 'react-icons/fi'
+import { Helmet } from 'react-helmet-async'
 
 const BlogDetails = ( {url} ) => {
     const [selectedBlog, setSelectedBlog] = useState(null);
@@ -71,9 +72,12 @@ const BlogDetails = ( {url} ) => {
 
   return (
     <div className='w-full relative'>
+      <Helmet>
+        {blog && <title>{blog.title}</title>}
+      </Helmet>
       <div className='main min-h-screen pt-16'>
         {blog && ( 
-          <div className='w-full p-6 border-black border-b'>
+          <div className='w-full p-6 '>
             <div className='border-b border-b-black my-2'>
               <p className='font-bold text-2xl md:text-3xl'>{blog.title}</p> 
             </div>
@@ -81,7 +85,7 @@ const BlogDetails = ( {url} ) => {
             <p className='italic text-sm md:text-md'>Author: <span className='font-bold text-[var(--primary)] border-b border-b-[var(--primary)]'>{blog.author}</span></p> 
             <div dangerouslySetInnerHTML={{ __html: blog.content }} className='text-sm md:text-lg' style={{lineHeight: '1.5'}}/>
             <div>
-              <p className='flex justify-end text-sm md:text-lg'><span className='mr-4'>Published:</span>{formatISO9075(new Date(blog.createdAt))}</p>
+              <p className='flex justify-end text-sm md:text-lg'><span className='mr-4 text-[var(--primary2)]'>Published:</span>{formatISO9075(new Date(blog.createdAt))}</p>
             </div>
           </div>
         )

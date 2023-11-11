@@ -5,6 +5,7 @@ import Blogs from '../components/Blogs'
 import BlogForm from '../components/BlogForm'
 import BlogSlides from '../components/BlogSlides'
 import { useAuthContext } from '../hooks/useAuthContext'
+import { Helmet } from 'react-helmet-async'
 
 
 const Landing = () => {
@@ -37,6 +38,9 @@ const Landing = () => {
   return (
     
     <div className='w-full main min-h-screen nav-scroll'>
+      <Helmet>
+        <title>Home</title>
+      </Helmet>
       <div className='w-full h-[50vh] mb-10'>
         <BlogSlides blogs={blogs}/>
       </div>

@@ -25,7 +25,7 @@ const Register = () => {
     setShowPassword(!showPassword)
   }
   return (
-<div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 min-h-screen">
+<div className="mx-auto max-w-screen-xl px-4 py-48 sm:px-6 lg:px-8 min-h-screen">
   <div className="mx-auto max-w-lg">
     <h1 className="text-center text-2xl font-bold text-[var(--primary)] sm:text-3xl">
       Get started today
@@ -105,7 +105,7 @@ const Register = () => {
       </div>
       <p className="text-center text-sm text-gray-500">
         Already have an Account?
-        <Link className="underline pl-2" to="/login"><span className='text-[var(--primary)]'>Login Here!</span></Link>
+        <Link className="underline pl-2" to="/login"><span className='text-[var(--primary)]' onClick={() => window.scrollTo(0, 0)}>Login Here!</span></Link>
       </p>
     </form>
   </div>

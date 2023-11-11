@@ -4,6 +4,7 @@ import axios from 'axios'
 import { useBlogsContext } from '../hooks/useBlogsContext'
 import { useAuthContext } from '../hooks/useAuthContext'
 import { useNavigate } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 
 
 const BlogForm = () => {
@@ -64,6 +65,9 @@ const BlogForm = () => {
     }
   return (
     <div className='px-2 main min-h-screen nav-scroll'>
+        <Helmet>
+            <title>Create</title>
+        </Helmet>
     <div className='w-full grid md:grid-cols-3 gap-3'>
         <div className='md:col-span-2 p-2 border'>
             <form className='flex flex-col' onSubmit={handleFormSubmit}>

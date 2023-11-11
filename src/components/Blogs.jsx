@@ -55,7 +55,7 @@ const Blogs = ({ blog, url}) => {
   return (
     <div className='w-full p-2 relative'>
       <div className='my-2'>
-        <p className='font-bold border-t text-xl md:text-3xl text-[var(--primary2)]'>{blog.title}</p>
+        <p className='font-bold text-xl md:text-3xl text-[var(--primary2)]'>{blog.title}</p>
       </div>
       <div>
         <Link to={`/blogs/${blog._id}`} onClick={() => window.scrollTo(0, 0)}>

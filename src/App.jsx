@@ -8,6 +8,7 @@ import { useAuthContext } from "./hooks/useAuthContext"
 import BlogForm from "./components/BlogForm"
 import { useState } from "react"
 import Resources from "./pages/Resources"
+import Footer from "./components/Footer"
 function App() {
   const {user} = useAuthContext()
   const [darkMode, setDarkMode] = useState(false)
@@ -32,6 +33,7 @@ function App() {
           <Route path="/blogform" element={<BlogForm /> } url={url}/>
            <Route path="/resources" element={<Resources /> } url={url}/>
         </Routes>
+        <Footer />
       </Router>
     </div>
   )
