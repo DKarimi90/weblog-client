@@ -72,7 +72,7 @@ const Blogs = ({ blog, url}) => {
           {showTrash? <button onClick={handleDelete}><BsTrash3 className='hover:text-[var(--danger)] animate-bounce'/></button>: ''}
         </div>
                       
-         <p className='flex justify-end text-sm md:text-lg pr-4'><span className='mr-2 text-[var(--primary2)]'>Published:</span>  {formatDistanceToNow(new Date(blog.createdAt), { addSuffix: true })}</p>
+         {/* <p className='flex justify-end text-sm md:text-lg pr-4'><span className='mr-2 text-[var(--primary2)]'>Published:</span>  {formatDistanceToNow(new Date(blog.createdAt), { addSuffix: true })}</p> */}
       </div>
               
     </div>
